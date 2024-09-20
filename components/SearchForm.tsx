@@ -28,9 +28,7 @@ const SearchForm = () => {
 		let params = new URLSearchParams();
 		params.set("search", searchVal);
 		params.set("jobStatus", jobStatusVal);
-		console.log(params);
 		router.push(`${pathname}?${params.toString()}`);
-		console.log(searchVal, jobStatusVal);
 	};
 
 	return (
@@ -40,11 +38,12 @@ const SearchForm = () => {
 			<Input
 				type="text"
 				placeholder="Search Jobs"
+				className="border-gray-600"
 				defaultValue={search}
 				name="search"
 			/>
 			<Select name="jobStatus" defaultValue={jobStatusParam}>
-				<SelectTrigger>
+				<SelectTrigger className="border-gray-600">
 					<SelectValue />
 				</SelectTrigger>
 				<SelectContent>

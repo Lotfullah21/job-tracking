@@ -13,7 +13,6 @@ import { use } from "react";
 
 const authenticateAndRedirect = (): string => {
 	const { userId } = auth();
-	console.log("used id", userId);
 	if (!userId) {
 		redirect("/");
 	}
@@ -35,7 +34,6 @@ export const createJobAction = async (
 				clerkId: userId,
 			},
 		});
-		console.log(job);
 		return job;
 	} catch (error) {
 		console.log(error);
@@ -86,19 +84,29 @@ export const getAllJobsAction = async ({
 			};
 		}
 
+		const skip: number = (page - 1) * limit;
+
 		if (jobStatus && jobStatus !== "all") {
 			whereClause = {
 				...whereClause,
 				status: jobStatus,
 			};
 		}
+
 		const jobs: JobType[] = await prisma.job.findMany({
 			where: whereClause,
+			take: limit,
 			orderBy: {
 				createdAt: "desc",
 			},
 		});
-		return { jobs, count: 0, totalPages: 0, page: 1 };
+		const count: number = await prisma.job.count({
+			where: whereClause,
+		});
+
+		const totalPages = Math.ceil(count / limit);
+
+		return { jobs, count, totalPages, page };
 	} catch (error) {
 		return { jobs: [], count: 0, totalPages: 0, page: 1 };
 	}
@@ -229,7 +237,6 @@ export async function getChartsDataAction(): Promise<
 
 			return acc;
 		}, [] as Array<{ date: string; count: number }>);
-		console.log(jobs);
 		return applicationsPerMonth;
 	} catch (error) {
 		redirect("/jobs");
