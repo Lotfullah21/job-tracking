@@ -11,12 +11,15 @@ import { Input } from "./ui/input";
 import { Control, FieldValues, Path } from "react-hook-form";
 import { SelectValue } from "@radix-ui/react-select";
 
-type CustomFormFieldPropType<TFieldValues extends FieldValues = any> = {
+// Generic TFieldValues defaults to FieldValues if not explicitly provided
+type CustomFormFieldPropType<TFieldValues extends FieldValues = FieldValues> = {
 	name: Path<TFieldValues>; // Ensure name is a valid path of the form data
 	control: Control<TFieldValues>;
 };
 
-export const CustomFormField = <TFieldValues extends FieldValues = any>({
+export const CustomFormField = <
+	TFieldValues extends FieldValues = FieldValues
+>({
 	name,
 	control,
 }: CustomFormFieldPropType<TFieldValues>) => {
@@ -36,14 +39,16 @@ export const CustomFormField = <TFieldValues extends FieldValues = any>({
 	);
 };
 
-type CustomFormSelectProps<TFieldValues extends FieldValues = any> = {
+type CustomFormSelectProps<TFieldValues extends FieldValues = FieldValues> = {
 	name: Path<TFieldValues>; // Ensure name is a valid path of the form data
 	control: Control<TFieldValues>;
 	items: string[];
 	labelText?: string;
 };
 
-export const CustomFormSelect = <TFieldValues extends FieldValues = any>({
+export const CustomFormSelect = <
+	TFieldValues extends FieldValues = FieldValues
+>({
 	name,
 	control,
 	items,
