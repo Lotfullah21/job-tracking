@@ -8,8 +8,8 @@ export type JobType = {
 	clerkId: string;
 	position: string;
 	company: string;
-	status: string;
 	location: string;
+	status: string;
 	mode: string;
 };
 
