@@ -21,8 +21,6 @@ const ComplexButtonContainer = ({
 	const router = useRouter();
 	const pathname = usePathname();
 
-	const pageButtons = Array.from({ length: totalPages }, (_, i) => i + 1);
-
 	const handlePageChange = (page: number) => {
 		const defaultParams = {
 			search: searchParams.get("search") || "",
@@ -30,7 +28,7 @@ const ComplexButtonContainer = ({
 			page: String(page),
 		};
 
-		let params = new URLSearchParams(defaultParams);
+		const params = new URLSearchParams(defaultParams);
 
 		router.push(`${pathname}?${params.toString()}`);
 	};

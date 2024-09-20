@@ -1,6 +1,5 @@
 import { Select, SelectContent, SelectTrigger, SelectItem } from "./ui/select";
 import {
-	Form,
 	FormControl,
 	FormField,
 	FormItem,
@@ -9,15 +8,18 @@ import {
 } from "./ui/form";
 
 import { Input } from "./ui/input";
-import { Control } from "react-hook-form";
+import { Control, FieldValues, Path } from "react-hook-form";
 import { SelectValue } from "@radix-ui/react-select";
 
-type CustomFormFieldPropType = {
-	name: string;
-	control: Control<any>;
+type CustomFormFieldPropType<TFieldValues extends FieldValues = any> = {
+	name: Path<TFieldValues>; // Ensure name is a valid path of the form data
+	control: Control<TFieldValues>;
 };
 
-export const CustomFormField = ({ name, control }: CustomFormFieldPropType) => {
+export const CustomFormField = <TFieldValues extends FieldValues = any>({
+	name,
+	control,
+}: CustomFormFieldPropType<TFieldValues>) => {
 	return (
 		<FormField
 			control={control}
@@ -34,19 +36,19 @@ export const CustomFormField = ({ name, control }: CustomFormFieldPropType) => {
 	);
 };
 
-type CustomFormSelectProps = {
-	name: string;
-	control: Control<any>;
+type CustomFormSelectProps<TFieldValues extends FieldValues = any> = {
+	name: Path<TFieldValues>; // Ensure name is a valid path of the form data
+	control: Control<TFieldValues>;
 	items: string[];
 	labelText?: string;
 };
 
-export const CustomFormSelect = ({
+export const CustomFormSelect = <TFieldValues extends FieldValues = any>({
 	name,
 	control,
 	items,
 	labelText,
-}: CustomFormSelectProps) => {
+}: CustomFormSelectProps<TFieldValues>) => {
 	return (
 		<FormField
 			name={name}
