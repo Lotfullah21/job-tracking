@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
-import { linkSync } from "fs";
 
 const Sidebar = () => {
 	const pathName = usePathname();

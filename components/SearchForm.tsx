@@ -25,7 +25,7 @@ const SearchForm = () => {
 		const searchVal = formData.get("search") as string;
 		const jobStatusVal = formData.get("jobStatus") as string;
 		// lets construct a new url with search params using URLSearchParams
-		let params = new URLSearchParams();
+		const params = new URLSearchParams();
 		params.set("search", searchVal);
 		params.set("jobStatus", jobStatusVal);
 		router.push(`${pathname}?${params.toString()}`);

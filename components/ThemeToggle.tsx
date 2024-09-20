@@ -16,7 +16,7 @@ interface ThemeToggleProps {
 	className?: string; // Optional className prop
 }
 
-const ThemeToggle: React.FC<ThemeToggleProps> = ({ className }) => {
+const ThemeToggle: React.FC<ThemeToggleProps> = () => {
 	const { setTheme } = useTheme();
 
 	return (

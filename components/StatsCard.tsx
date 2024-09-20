@@ -1,10 +1,4 @@
-import {
-	Card,
-	CardContent,
-	CardTitle,
-	CardDescription,
-	CardHeader,
-} from "./ui/card";
+import { Card, CardTitle, CardDescription, CardHeader } from "./ui/card";
 
 import { Skeleton } from "@/components/ui/skeleton";
 type StatsCardProps = {

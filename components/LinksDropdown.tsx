@@ -2,7 +2,6 @@ import {
 	DropdownMenu,
 	DropdownMenuTrigger,
 	DropdownMenuContent,
-	DropdownMenuLabel,
 	DropdownMenuItem,
 } from "./ui/dropdown-menu";
 

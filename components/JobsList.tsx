@@ -1,10 +1,8 @@
 "use client";
-
 import { useSearchParams } from "next/navigation";
 import { getAllJobsAction } from "@/utils/actions";
 import { useQuery } from "@tanstack/react-query";
 import JobCard from "./JobCard";
-import ButtonContainer from "./ButtonContainer";
 import ComplexButtonContainer from "./ComplexButtonContainer";
 
 const JobsList = () => {
