@@ -17,7 +17,10 @@ function ChartsContainer() {
 		queryFn: () => getChartsDataAction(),
 	});
 
-	if (isPending) return <h2 className="text-xl font-medium">Please wait...</h2>;
+	if (isPending)
+		return (
+			<h2 className="text-xl font-medium mt-12 text-center">Please wait...</h2>
+		);
 	if (!data || data.length < 1) return null;
 	return (
 		<section className="mt-16">

@@ -27,10 +27,10 @@ const JobsList = () => {
 	const page = data?.page || 0;
 
 	if (isPending) {
-		return <h1 className="text-xl">Please wait...</h1>;
+		return <h1 className="text-xl mt-12 text-center">Please wait...</h1>;
 	}
 	if (jobs.length < 1) {
-		return <h1 className="text-xl">No jobs found</h1>;
+		return <h1 className="text-xl mt-12 text-center">No jobs found</h1>;
 	}
 
 	return (
