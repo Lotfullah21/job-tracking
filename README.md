@@ -1,14 +1,18 @@
 
 
+
+[Job-Tracking-App](https://job-tracking-l26enr5p4-lotfullahs-projects.vercel.app/add-job)
+
+
+<!-- Just to remove git from our project temporarily if there is any. -->
+
+
+
 ```sh
 npm install @clerk/nextjs@^4.27.7 @prisma/client@^5.7.0 @tanstack/react-query@^5.14.0 @tanstack/react-query-devtools@^5.14.0 dayjs@^1.11.10 next-themes@^0.2.1 recharts@^2.10.3
 npm install prisma@^5.7.0 -D
 
 ```
-[Job-Tracking-App](https://job-tracking-l26enr5p4-lotfullahs-projects.vercel.app/add-job)
-
-
-<!-- Just to remove git from our project temporarily if there is any. -->
 
 ```sh
 rm -rf .git
