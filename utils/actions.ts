@@ -7,9 +7,6 @@ import { JobType, createAndEditJobSchema, CreateAndEditJobType } from "./types";
 import { redirect } from "next/navigation";
 import { Prisma } from "@prisma/client";
 import dayjs from "dayjs";
-import { Search } from "lucide-react";
-import JobsPage from "@/app/(dashboard)/jobs/page";
-import { use } from "react";
 
 const authenticateAndRedirect = (): string => {
 	const { userId } = auth();
@@ -84,7 +81,7 @@ export const getAllJobsAction = async ({
 			};
 		}
 
-		const skip: number = (page - 1) * limit;
+		// const skip: number = (page - 1) * limit;
 
 		if (jobStatus && jobStatus !== "all") {
 			whereClause = {
@@ -224,7 +221,7 @@ export async function getChartsDataAction(): Promise<
 			},
 		});
 
-		let applicationsPerMonth = jobs.reduce((acc, job) => {
+		const applicationsPerMonth = jobs.reduce((acc, job) => {
 			const date = dayjs(job.createdAt).format("MMM YY");
 
 			const existingEntry = acc.find((entry) => entry.date === date);
